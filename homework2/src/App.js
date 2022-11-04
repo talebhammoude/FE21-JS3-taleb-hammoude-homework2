@@ -7,12 +7,7 @@ import { useState } from "react";
 
 
 
-
-
-const data = [
-  
-]
-
+const data = []
 
 
 function App() {
