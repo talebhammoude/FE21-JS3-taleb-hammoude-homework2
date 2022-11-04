@@ -3,6 +3,7 @@ import './App.css';
 import Fridge from './Components/Fridge';
 import List from './Components/List';
 import { useState } from "react";
+import CategoryButtons from './Components/CategoryButtons';
 
 
 
@@ -24,30 +25,26 @@ function App() {
     let pcat = document.querySelector("#pcat").value;
 
 
-    if(productname && pamount && pdate && pcat) {
+        if(productname && pamount && pdate && pcat) {
 
-      setData((prev)=>{
-        return(
-          [
-            ...prev, {
-              id: Math.floor(Math.random() * 999),
-              name: productname,
-              amount: pamount,
-              date: pdate, 
-              category: pcat
-              }
-          ]
-        )
-        
-      })
-      
-      
+          setData((prev)=>{
+            return(
+              [
+                ...prev, {
+                  id: Math.floor(Math.random() * 999),
+                  name: productname,
+                  amount: pamount,
+                  date: pdate, 
+                  category: pcat
+                  }
+              ]
+            )
+            
+          })
 
-    } else {
-      alert("Fyll i alla fält för att kunna skicka in")
-    }
-
-
+        } else {
+          alert("Fyll i alla fält för att kunna skicka in")
+        }
     }
 
 
@@ -57,6 +54,7 @@ function App() {
     <div className="App">
       <header className="App-header">
        <Fridge handleSubmitFunc = {handleSubmit}/>
+       <CategoryButtons theData = {currentData}/>
        <List theData = {currentData}/>
       </header>
     </div>
