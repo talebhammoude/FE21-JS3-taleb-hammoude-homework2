@@ -23,25 +23,36 @@ function App() {
 
   const handleSubmit = (e)=> {
     e.preventDefault();
-    const productname = document.querySelector("#pname").value;
-    const pamount = document.querySelector("#pamount").value;
-    const pdate = document.querySelector("#pdate").value;
-    const pcat = document.querySelector("#pcat").value;
+    let productname = document.querySelector("#pname").value;
+    let pamount = document.querySelector("#pamount").value;
+    let pdate = document.querySelector("#pdate").value;
+    let pcat = document.querySelector("#pcat").value;
 
-    setData((prev)=>{
-      return(
-        [
-          ...prev, {
-            id: Math.floor(Math.random() * 999),
-            name: productname,
-            amount: pamount,
-            date: pdate, 
-            category: pcat
-            }
-        ]
-      )
+
+    if(productname && pamount && pdate && pcat ) {
+
+      setData((prev)=>{
+        return(
+          [
+            ...prev, {
+              id: Math.floor(Math.random() * 999),
+              name: productname,
+              amount: pamount,
+              date: pdate, 
+              category: pcat
+              }
+          ]
+        )
+        
+      })
       
-    })
+      
+
+    } else {
+      alert("Fyll i alla fält för att kunna skicka in")
+    }
+
+
     }
 
 
