@@ -2,35 +2,56 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Fridge from './Components/Fridge';
 import List from './Components/List';
+import { useState } from "react";
+
+
 
 
 
 
 const data = [
-  {
-    id: 1,
-    name: "talang",
-    amount: 1,
-    date: new Date(2022, 11, 7), 
-    category: "fruit"
-  },
-  {
-    id: 2,
-    name: "mannushi",
-    amount: 3,
-    date: new Date(2022, 11, 9), 
-    category: "vegetable"
-  }
+  
 ]
 
 
 
 function App() {
+
+
+  const [currentData, setData] = useState(data)
+
+
+  const handleSubmit = (e)=> {
+    e.preventDefault();
+    const productname = document.querySelector("#pname").value;
+    const pamount = document.querySelector("#pamount").value;
+    const pdate = document.querySelector("#pdate").value;
+    const pcat = document.querySelector("#pcat").value;
+
+    setData((prev)=>{
+      return(
+        [
+          ...prev, {
+            id: Math.floor(Math.random() * 999),
+            name: productname,
+            amount: pamount,
+            date: pdate, 
+            category: pcat
+            }
+        ]
+      )
+      
+    })
+    }
+
+
+
+
   return (
     <div className="App">
       <header className="App-header">
-       <Fridge/>
-       <List theData = {data}/>
+       <Fridge handleSubmitFunc = {handleSubmit}/>
+       <List theData = {currentData}/>
       </header>
     </div>
   );

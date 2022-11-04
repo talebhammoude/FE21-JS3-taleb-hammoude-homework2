@@ -16,12 +16,15 @@ function List(props) {
               <div className="cardClass">
                 <Card>
                   <Card.Body>
-                    <Card.Title className="cardTitle">{e.name}</Card.Title>
+                    <Card.Title className="cardTitle">{e.category}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">
-                      Category: {e.category}
+                      Name: {e.name}
                     </Card.Subtitle>
                     <Card.Subtitle className="mb-2 text-muted">
                       Amount: {e.amount}
+                    </Card.Subtitle>
+                    <Card.Subtitle className="mb-2 text-muted">
+                      Date: {e.date}
                     </Card.Subtitle>
                   </Card.Body>
                 </Card>
