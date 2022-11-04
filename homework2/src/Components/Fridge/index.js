@@ -12,16 +12,26 @@ function Fridge() {
         <Col xs={{ order: 12 }}>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Name</Form.Label>
-              <Form.Control type="text" placeholder="Name" />
+              <Form.Label>Product name</Form.Label>
+              <Form.Control type="text" placeholder="Product name" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Amount</Form.Label>
+              <Form.Label>Product amount</Form.Label>
               <Form.Control type="number" placeholder="Amount" />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Date</Form.Label>
+              <Form.Control type="date"/>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Product category</Form.Label>
+              <Form.Control type="text" placeholder="Product category" />
+            </Form.Group>
+
+            <Button variant="light" type="submit">
               Submit
             </Button>
           </Form>
