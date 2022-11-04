@@ -29,7 +29,7 @@ function App() {
     let pcat = document.querySelector("#pcat").value;
 
 
-    if(productname && pamount && pdate && pcat ) {
+    if(productname && pamount && pdate && pcat) {
 
       setData((prev)=>{
         return(
