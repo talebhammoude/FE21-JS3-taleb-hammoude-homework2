@@ -8,13 +8,13 @@ import CategoryButtons from './Components/CategoryButtons';
 
 
 
-const data = [];
-
-
 function App() {
 
 
-  const [currentData, setData] = useState(data)
+  const [currentData, setData] = useState([])
+  const [currentCats, setCat] = useState([])
+
+  
 
 
   const handleSubmit = (e)=> {
@@ -42,19 +42,30 @@ function App() {
             
           })
 
+
+          setCat((prev)=>{
+            return (
+              [
+                ...prev, pcat
+              ]
+            )
+          })
+
+           
+
         } else {
           alert("Fyll i alla fält för att kunna skicka in")
         }
     }
 
 
-
+    
 
   return (
     <div className="App">
       <header className="App-header">
        <Fridge handleSubmitFunc = {handleSubmit}/>
-       <CategoryButtons theData = {currentData}/>
+       <CategoryButtons theCats = {currentCats}/>
        <List theData = {currentData}/>
       </header>
     </div>
