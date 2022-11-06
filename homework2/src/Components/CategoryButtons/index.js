@@ -7,7 +7,7 @@ function CategoryButtons(props) {
 
  
 
-  const [currentFilteredValue, setFilteredValue] = useState();
+    const [currentFilteredValue, setFilteredValue] = useState();
 
 
     const setCats = new Set(props.theCats);
@@ -38,8 +38,6 @@ function CategoryButtons(props) {
     event.target.style['border-color'] = "";
    }
 
-
-
    
 
 
@@ -47,7 +45,7 @@ function CategoryButtons(props) {
     
     <div className="catButtons">
 
-        <Button variant="secondary"   onFocus={markOn}  onBlur={markOff}   onClick={handleClickOnAll}>ALL</Button>{'  '}
+        <Button variant="secondary"  id="allBtn"  onFocus={markOn}  onBlur={markOff}   onClick={handleClickOnAll}>ALL</Button>{'  '}
           {setCatsArray.map((e) => {
             return (
               <span>
