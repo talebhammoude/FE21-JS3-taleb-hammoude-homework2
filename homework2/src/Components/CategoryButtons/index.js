@@ -5,36 +5,53 @@ import { useState } from "react";
 
 function CategoryButtons(props) {
 
+ 
+
   const [currentFilteredValue, setFilteredValue] = useState();
+
 
     const setCats = new Set(props.theCats);
     const setCatsArray = [...setCats];
 
 
 
-    const filterData = (event)=> {
-        // event.target.style['border-width'] = "7px";
-        setFilteredValue([...props.theData.filter(e=>e.category===event.target.innerHTML)]);
+    const handleClickOnOthers = (event)=> {
+      setFilteredValue([...props.theData.filter(e=>e.category===event.target.innerHTML)]);
     }
 
 
 
-    const handleClickOnAll = (e)=> {
+    const handleClickOnAll = (event)=> {
       setFilteredValue();
     }
 
 
+
+   const markOn = (event) => {
+    event.target.style['border-width'] = "7px";
+    event.target.style['border-color'] = "white";
+   }
+
+
+   const markOff = (event) => {
+    event.target.style['border-width'] = "0px";
+    event.target.style['border-color'] = "";
+   }
+
+
+
+   
 
 
   return (
     
     <div className="catButtons">
 
-        <Button variant="secondary" onClick={handleClickOnAll}>ALL</Button>{'  '}
+        <Button variant="secondary"   onFocus={markOn}  onBlur={markOff}   onClick={handleClickOnAll}>ALL</Button>{'  '}
           {setCatsArray.map((e) => {
             return (
               <span>
-                 <Button variant="warning" onClick={filterData} id="catBtn">{e}</Button>{'  '}
+                 <Button variant="warning"  onFocus={markOn}  onBlur={markOff}    onClick={handleClickOnOthers} id="catBtn">{e}</Button>{'  '}
               </span>
             );
           })}
