@@ -1,22 +1,26 @@
 import "./styles.css";
 import Button from 'react-bootstrap/Button';
+import List from "../List";
+import { useState } from "react";
 
 function CategoryButtons(props) {
 
+  const [currentFilteredValue, setFilteredValue] = useState();
 
     const setCats = new Set(props.theCats);
     const setCatsArray = [...setCats];
 
 
 
-    const handleClickOnCat = (e)=> {
-        // e.target.style['border-width'] = "7px";
-        
+    const filterData = (event)=> {
+        // event.target.style['border-width'] = "7px";
+        setFilteredValue([...props.theData.filter(e=>e.category===event.target.innerHTML)]);
     }
 
+
+
     const handleClickOnAll = (e)=> {
-        
-        
+      setFilteredValue();
     }
 
 
@@ -30,12 +34,14 @@ function CategoryButtons(props) {
           {setCatsArray.map((e) => {
             return (
               <span>
-                 <Button variant="warning" onClick={handleClickOnCat} id="catBtn">{e}</Button>{'  '}
+                 <Button variant="warning" onClick={filterData} id="catBtn">{e}</Button>{'  '}
               </span>
             );
           })}
+        
+        <List theData={props.theData}  theFilteredArrayValue={currentFilteredValue} />
+
     </div>
-       
   );
 }
 

@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Fridge from './Components/Fridge';
-import List from './Components/List';
 import { useState } from "react";
 import CategoryButtons from './Components/CategoryButtons';
 
@@ -59,14 +58,14 @@ function App() {
     }
 
 
+
     
 
   return (
     <div className="App">
       <header className="App-header">
        <Fridge handleSubmitFunc = {handleSubmit}/>
-       <CategoryButtons theCats = {currentCats}/>
-       <List theData = {currentData}/>
+       <CategoryButtons theCats = {currentCats}  theData = {currentData}/>
       </header>
     </div>
   );
